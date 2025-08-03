@@ -27,7 +27,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build -- --outDir $BUILD_OUTPUT_DIR
+      - run: npm run build -- --outDir ${{ env.BUILD_OUTPUT_DIR }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ env.BUILD_OUTPUT_DIR }}
