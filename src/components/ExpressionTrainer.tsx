@@ -50,25 +50,33 @@ const PHASES = [
     name: "Mental Warm-up", 
     duration: 5 * 60, 
     description: "Associações livres com a palavra",
-    objective: "Ativar criatividade e flexibilidade cognitiva, quebrando bloqueios iniciais"
+    objective: "Ativar criatividade e flexibilidade cognitiva, quebrando bloqueios iniciais",
+    instructions: "Veja a palavra-estímulo e escreva tudo que vem à mente: objetos, sentimentos, memórias, outras palavras. Não se preocupe com lógica ou correção.",
+    benefits: "• Quebra a 'página em branco'\n• Amplia vocabulário ativo\n• Estimula conexões neurais criativas"
   },
   { 
     name: "Active Reading", 
     duration: 10 * 60, 
     description: "6 min leitura + 4 min resumo",
-    objective: "Treinar foco e compreensão rápida, desenvolvendo capacidade de síntese"
+    objective: "Treinar foco e compreensão rápida, desenvolvendo capacidade de síntese",
+    instructions: "Primeiros 6 minutos: leia ativamente sobre o tema, destacando pontos-chave mentalmente. Últimos 4 minutos: resuma com suas próprias palavras o que entendeu.",
+    benefits: "• Melhora concentração e foco\n• Desenvolve pensamento analítico\n• Fortalece memória de trabalho"
   },
   { 
     name: "Rapid Expression", 
     duration: 10 * 60, 
     description: "Fale sobre o tema proposto",
-    objective: "Melhorar fluência verbal e reduzir autocensura ao falar em público"
+    objective: "Melhorar fluência verbal e reduzir autocensura ao falar em público",
+    instructions: "Fale continuamente sobre o tema por 1-2 minutos sem parar. Se travar, continue falando mesmo que seja 'não sei o que dizer'. Pode trocar o tema se necessário.",
+    benefits: "• Aumenta confiança ao falar\n• Reduz ansiedade de apresentação\n• Melhora articulação de ideias"
   },
   { 
     name: "Quick Writing", 
     duration: 5 * 60, 
     description: "Escreva livremente sobre a palavra",
-    objective: "Incentivar fluxo de escrita e consolidar ideias das etapas anteriores"
+    objective: "Incentivar fluxo de escrita e consolidar ideias das etapas anteriores",
+    instructions: "Escreva sem parar sobre a palavra-estímulo. Não se preocupe com gramática ou estrutura. Se não souber o que escrever, escreva 'não sei o que escrever' até uma nova ideia surgir.",
+    benefits: "• Desenvolve fluência na escrita\n• Consolida aprendizados da sessão\n• Cria registro tangível das ideias"
   }
 ];
 
@@ -311,9 +319,22 @@ export default function ExpressionTrainer() {
                 <p className="text-muted-foreground mb-2">
                   {PHASES[currentPhase].description}
                 </p>
-                <p className="text-sm text-primary/80 mb-4 italic">
+                <p className="text-sm text-primary/80 mb-3 italic">
                   {PHASES[currentPhase].objective}
                 </p>
+                
+                {/* Instruções detalhadas */}
+                <div className="bg-muted/50 p-4 rounded-lg mb-4 text-left">
+                  <h4 className="font-semibold text-sm mb-2">Como fazer:</h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {PHASES[currentPhase].instructions}
+                  </p>
+                  <h4 className="font-semibold text-sm mb-2">Benefícios:</h4>
+                  <div className="text-sm text-muted-foreground whitespace-pre-line">
+                    {PHASES[currentPhase].benefits}
+                  </div>
+                </div>
+                
                 <Progress value={getPhaseProgress()} className="mb-4" />
               </div>
               
