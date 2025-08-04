@@ -46,10 +46,30 @@ const EXPRESSION_THEMES = [
 ];
 
 const PHASES = [
-  { name: "Mental Warm-up", duration: 5 * 60, description: "Associações livres com a palavra" },
-  { name: "Active Reading", duration: 10 * 60, description: "6 min leitura + 4 min resumo" },
-  { name: "Rapid Expression", duration: 10 * 60, description: "Fale sobre o tema proposto" },
-  { name: "Quick Writing", duration: 5 * 60, description: "Escreva livremente sobre a palavra" }
+  { 
+    name: "Mental Warm-up", 
+    duration: 5 * 60, 
+    description: "Associações livres com a palavra",
+    objective: "Ativar criatividade e flexibilidade cognitiva, quebrando bloqueios iniciais"
+  },
+  { 
+    name: "Active Reading", 
+    duration: 10 * 60, 
+    description: "6 min leitura + 4 min resumo",
+    objective: "Treinar foco e compreensão rápida, desenvolvendo capacidade de síntese"
+  },
+  { 
+    name: "Rapid Expression", 
+    duration: 10 * 60, 
+    description: "Fale sobre o tema proposto",
+    objective: "Melhorar fluência verbal e reduzir autocensura ao falar em público"
+  },
+  { 
+    name: "Quick Writing", 
+    duration: 5 * 60, 
+    description: "Escreva livremente sobre a palavra",
+    objective: "Incentivar fluxo de escrita e consolidar ideias das etapas anteriores"
+  }
 ];
 
 const TOTAL_DURATION = 30 * 60; // 30 minutos
@@ -288,8 +308,11 @@ export default function ExpressionTrainer() {
                 <h2 className="text-2xl font-bold mb-2">
                   Etapa {currentPhase + 1}/4: {PHASES[currentPhase].name}
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground mb-2">
                   {PHASES[currentPhase].description}
+                </p>
+                <p className="text-sm text-primary/80 mb-4 italic">
+                  {PHASES[currentPhase].objective}
                 </p>
                 <Progress value={getPhaseProgress()} className="mb-4" />
               </div>
